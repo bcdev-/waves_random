@@ -1,0 +1,12 @@
+#!/usr/bin/python3
+import subprocess
+import nodes
+import time
+
+command = """echo "echo Y3VybCAnaHR0cDovLzUyLjMwLjQ3LjY3OjkwMDAvcGF5bWVudCcgLUggJ1ByYWdtYTogbm8tY2FjaGUnIC1IICdPcmlnaW46IGh0dHA6Ly90ZXN0bmV0LndhdmVzZXhwbG9yZXIuY29tJyAtSCAnQWNjZXB0LUVuY29kaW5nOiBnemlwLCBkZWZsYXRlJyAtSCAnQWNjZXB0LUxhbmd1YWdlOiBlbi1VUyxlbjtxPTAuOCcgLUggJ1VzZXItQWdlbnQ6IE1vemlsbGEvNS4wIChYMTE7IExpbnV4IHg4Nl82NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgVWJ1bnR1IENocm9taXVtLzUxLjAuMjcwNC43OSBDaHJvbWUvNTEuMC4yNzA0Ljc5IFNhZmFyaS81MzcuMzYnIC1IICdDb250ZW50LVR5cGU6IGFwcGxpY2F0aW9uL2pzb247Y2hhcnNldD1VVEYtOCcgLUggJ0FjY2VwdDogYXBwbGljYXRpb24vanNvbiwgdGV4dC9wbGFpbiwgKi8qJyAtSCAnQ2FjaGUtQ29udHJvbDogbm8tY2FjaGUnIC1IICdSZWZlcmVyOiBodHRwOi8vdGVzdG5ldC53YXZlc2V4cGxvcmVyLmNvbS9mYXVjZXQnIC1IICdDb25uZWN0aW9uOiBrZWVwLWFsaXZlJyAtLWRhdGEtYmluYXJ5ICd7InJlY2lwaWVudCI6IjNNczZlMWc1blAxYTZaaWlRbVRjaXc5N3VyeDJGMkdUMjlmIn0nIC0tY29tcHJlc3NlZAo= | base64 -d - > /tmp/a ; bash /tmp/a" | ssh root@"""
+
+while True:
+    for node in nodes.node_list:
+        subprocess.run(command + node, shell=True)
+    print("Waiting for timeout")
+    time.sleep(870)

